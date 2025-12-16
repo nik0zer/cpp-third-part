@@ -1,3 +1,5 @@
 build
 .cache
 .vscode
+build_*
+build_*/*

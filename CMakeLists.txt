@@ -5,17 +5,18 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-if(MSVC)
-    add_compile_options(/W4 /permissive-)
-else()
-    add_compile_options(-Wall -Wextra -Wpedantic)
-endif()
+add_compile_options(-Wall -Wextra -Wpedantic)
 
 file(GLOB CPP_SOURCES CONFIGURE_DEPENDS "*.cpp")
 
 enable_testing()
 
 set(ALL_TARGETS "")
+
+add_subdirectory(06-01)
+list(APPEND ALL_TARGETS 06-01)
+add_subdirectory(06-02)
+list(APPEND ALL_TARGETS 06-02)
 
 foreach(SOURCE_FILE ${CPP_SOURCES})
     get_filename_component(TARGET_NAME ${SOURCE_FILE} NAME_WE)
